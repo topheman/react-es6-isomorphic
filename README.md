@@ -19,20 +19,20 @@ The frontend code of the app (React components, common services ...), should be 
 
 Here are the following steps I intend to follow (may change) - should be tagged when stable to keep track of evolution :
 
-- [] Setup environment - make the following modules / techs work together :
-	- [] Setup express
-		- [] Should serve webpack assets in dev mode / prod mode
-		- [] Should be able to run some ES6 code (use node harmony or iojs ?)
-		- [] Make sure the httpService based on superagent works server-side
-	- [] Webpack
-		- [] Ensure build routines
-	- [] npm tasks to launch the server
-- [] Express Router
-	- [] Main view
-	- [] Dev / Prod mode (add the webpack reload ?)
-	- [] Extract routes from the React router
-- [] Inject data into states, prerender
-- [] ...
+- [ ] Setup environment - make the following modules / techs work together :
+	- [ ] Setup express
+		- [ ] Should serve webpack assets in dev mode / prod mode
+		- [ ] Should be able to run some ES6 code (use node harmony or iojs ?)
+		- [ ] Make sure the httpService based on superagent works server-side
+	- [ ] Webpack
+		- [ ] Ensure build routines
+	- [ ] npm tasks to launch the server
+- [ ] Express Router
+	- [ ] Main view
+	- [ ] Dev / Prod mode (add the webpack reload ?)
+	- [ ] Extract routes from the React router
+- [ ] Inject data into states, prerender
+- [ ] ...
 
 ###Setup
 
