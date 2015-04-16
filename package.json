@@ -55,6 +55,7 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
+    "babel": "^5.1.10",
     "bootstrap-sass": "^3.3.4",
     "ejs": "^2.3.1",
     "express-ejs-layouts": "^1.1.0",

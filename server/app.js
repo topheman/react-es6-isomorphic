@@ -1,3 +1,4 @@
+require('babel/register');//to be able to mix and match ES5 CommonJS / ES6 modules
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
