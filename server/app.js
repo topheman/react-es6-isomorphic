@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var helpers = require('./common/helpers');
 
 var routes = require('./routes');
 
@@ -39,7 +40,7 @@ app.use('/', routes);
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+if (app.get('env') !== 'PROD') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     console.log(err, err.message);
@@ -66,5 +67,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+/** httpService init - also runs client side with the same code, both in ES6 */
+var httpServiceConfiguration = helpers.getHttpServiceConfiguration(app.get('env'));
+var httpService = require('../src/services/httpService').getInstance(httpServiceConfiguration);
 
 module.exports = app;
