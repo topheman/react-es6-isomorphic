@@ -6,7 +6,8 @@ var path = require('path');
 router.get('/*', function(req, res, next) {
   res.render(path.resolve(__dirname, 'views/body.ejs'), {
     layout: 'layout',
-    body: '<p>Hello world!</p>'
+    body: '<p>Hello world!</p>',
+    env: req.app.get('env')
   });
 });
 

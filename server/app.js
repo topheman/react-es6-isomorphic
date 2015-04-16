@@ -26,14 +26,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+// catch 404 and forward to error handler (must be before routes declaration which catches all)
+app.use('/:url(assets)/*',function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+app.use('/', routes);
 
 // error handlers
 
@@ -46,7 +46,9 @@ if (app.get('env') === 'development') {
     res.render(path.join(__dirname,'views/error.ejs'), {
       layout: 'layout',
       message: err.message,
-      error: err
+      status: err.status || 500,
+      error: err,
+      env: req.app.get('env')
     });
   });
 }
@@ -58,7 +60,9 @@ app.use(function(err, req, res, next) {
   res.render(path.join(__dirname,'views/error.ejs'), {
     layout: 'layout',
     message: err.message,
-    error: {}
+    status: err.status || 500,
+    error: {},
+    env: req.app.get('env')
   });
 });
 
