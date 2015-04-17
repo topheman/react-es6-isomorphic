@@ -11,7 +11,7 @@ This project endgoal is to make an **isomorphic app** (same code for both client
 1. Backend : [topheman/topheman-apis-proxy](https://github.com/topheman/topheman-apis-proxy) : An ExpressJS based server that manages public APIs (and more)
 2. Frontend : [topheman/react-es6](https://github.com/topheman/react-es6) : All the frontend part of the app (UI in React ...) was first coded on that repo (and any modifications on the UI part will still be made there - see [contributing section](#contributing))
 
-This previous work will allow me to achieve my end goal : **create an isomorphic app**. This is what [topheman/react-es6-isomorphic](https://github.com/topheman/react-es6) is about :
+This previous work will allow me to achieve my end goal : **create an isomorphic app**. This is what [topheman/react-es6-isomorphic](https://github.com/topheman/react-es6-isomorphic) is about :
 
 * Do an isomorphic app
 * Same router on frontend and backend with multiple routes
@@ -87,7 +87,7 @@ Open [http://localhost:9000](http://localhost:9000/)
 
 The client-side code is written in ES6 with modules that work as well on the client as on the server (like React, superagent ...).
 
-* client-side : a bundle is made with webpack and accessible easer via its hot-reload dev server, or written inside `/build` folder
+* client-side : a bundle is made with webpack and accessible either via its hot-reload dev server, or written inside `/build` folder
 * server-side : `require('babel/register')` lets me use those es6 modules without any transpiling step (babel does it itself on the fly, I don't have to worry about it)
 
 I also made a set of npm tasks for the build step, that creates a bundle inside the `/build` folder (including js, sass to css, images ...)
