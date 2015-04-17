@@ -26,7 +26,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+//@note don't really need to serve /public since every assets are bundle with webpack
+//app.use(express.static(path.join(__dirname, 'public'))); //keeping it if any assets come out
+if (app.get('env') === 'PROD') {
+  app.use(express.static(path.join(__dirname, '../build')));
+}
 
 // catch 404 and forward to error handler (must be before routes declaration which catches all)
 app.use('/:url(assets)/*',function(req, res, next) {
