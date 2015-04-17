@@ -1,7 +1,7 @@
 {
-  "name": "react-es6",
+  "name": "react-es6-isomorphic",
   "version": "0.7.0",
-  "description": "A simple app to try React and ES6, using topheman-apis-proxy as data api backend",
+  "description": "A simple app to try React and ES6, using topheman-apis-proxy as data api backend NOW with isomorphism",
   "main": "index.js",
   "scripts": {
     "start": "node ./server/bin/www",
@@ -13,7 +13,8 @@
     "webpack-dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
     "webpack-mock": "MOCK=true ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --colors",
     "webpack-build": "grunt clean:build & ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js",
-    "webpack-build-prod": "grunt clean:build & PROD=true ./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js"
+    "webpack-build-prod": "grunt clean:build & PROD=true ./node_modules/webpack/bin/webpack.js -p --config ./webpack.config.js",
+    "postinstall": "npm run webpack-build-prod"
   },
   "repository": {
     "type": "git",
