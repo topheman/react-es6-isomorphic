@@ -31,8 +31,15 @@ Here are the following steps I intend to follow (may change) - should be tagged 
 		- [x] Ensure build routines
 	- [x] npm tasks to launch the server
 	- [x] setup deploy routines
-- [ ] Express Router with React Router
-- [ ] Inject data into states, prerender
+- [x] First iteration of server-side rendering [v1.1.0](https://github.com/topheman/react-es6-isomorphic/tree/v1.1.0)
+	- [x] Express Router with React Router
+	- [x] Server-side render static components based pages
+	- [x] Server-side render dynamic components based pages
+		- [x] Using the same ES6 service code on server as on client
+		- [x] Server-side request to backend to retrieve data
+		- [x] Inject data to component state (github user profile page)
+- [ ] Sync React nodes (not to have re-render)
+- [ ] Find more elegant way to inject data (maybe use flux ?)
 - [ ] ...
 
 ###Setup
