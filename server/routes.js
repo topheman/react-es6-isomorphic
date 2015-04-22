@@ -8,16 +8,40 @@ var React = require('react');
 var Router = require('react-router');
 var clientSideRoutes = require('../src/routes.jsx');
 
+var github = require('../src/services/github');
+
+var fetchDataByRoute = function(req, state, cb){
+  if(req.url.indexOf('/github/user/') > -1){
+    state.data = {};
+    Promise.all([
+      github.getUser(state.params.username),
+      github.getUserRepos(state.params.username)
+    ]).then(results => {
+      state.data.profile = results[0];
+      state.data.profile.pristineLogin = state.params.username;
+      state.data.repositories = results[1];
+      state.data.repositories.pristineLogin = state.params.username;
+      cb();
+    },() => {
+      delete state.data;
+      cb();
+    });
+  }
+  else{
+    cb();
+  }
+};
+
 /* GET users listing. */
 router.get('/*', function(req, res, next) {
-  //var router = Router.create({location: req.url, routes: clientSideRoutes});
   Router.run(clientSideRoutes, req.url, function(Handler, state) {
-    console.log(req.url,state);
-    var body = React.renderToString(<Handler/>)
-    res.render(path.resolve(__dirname, 'views/body.ejs'), {
-      layout: 'layout',
-      body: body,
-      env: req.app.get('env')
+    fetchDataByRoute(req, state, function(){
+      var body = React.renderToString(<Handler {...state}/>)
+      res.render(path.resolve(__dirname, 'views/body.ejs'), {
+        layout: 'layout',
+        body: body,
+        env: req.app.get('env')
+      });
     });
   });
 });
