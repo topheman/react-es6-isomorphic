@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Topheman - react-es6-isomorphic</title>
   <% if(env === 'PROD') { %>
-  <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
   <% } else { %>
   <link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/css/main.css">
   <% } %>
@@ -14,7 +14,7 @@
 <%- body %>
 <% if(typeof error === 'undefined') { %>
   <% if(env === 'PROD') { %>
-  <script src="./assets/js/bundle.js"></script>
+  <script src="/assets/js/bundle.js"></script>
   <% } else { %>
   <script src="http://localhost:8080/webpack-dev-server.js"></script>
   <script src="http://localhost:8080/assets/js/bundle.js"></script>
