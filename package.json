@@ -1,6 +1,6 @@
 {
   "name": "react-es6-isomorphic",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple app to try React and ES6, using topheman-apis-proxy as data api backend NOW with isomorphism",
   "main": "index.js",
   "scripts": {

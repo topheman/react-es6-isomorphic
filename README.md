@@ -38,7 +38,10 @@ Here are the following steps I intend to follow (may change) - should be tagged 
 		- [x] Using the same ES6 service code on server as on client
 		- [x] Server-side request to backend to retrieve data
 		- [x] Inject data to component state (github user profile page)
-- [ ] Sync React nodes (not to have re-render)
+- [x] Sync React nodes (not to have re-render) [v1.2.0](https://github.com/topheman/react-es6-isomorphic/tree/v1.2.0)
+	- [x] Passing serialized state to the front router
+	- [x] Fixed `Warning: render(): Target node has markup rendered by React, but there are unrelated nodes as well. This is most commonly caused by white-space inserted around server-rendered markup.` [by wrapping markup with divs](https://github.com/cvan/taro/issues/28#issuecomment-95694552).
+- [ ] Update frontend pages (home, twitter button, analytics, explain project ...)
 - [ ] Find more elegant way to inject data (maybe use flux ?)
 - [ ] ...
 
