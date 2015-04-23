@@ -12,6 +12,11 @@
 </head>
 <body>
 <%- body %>
+<% if(typeof serializedState !== 'undefined') { %>
+<script type="text/javascript">
+var __DATA__ = <%- serializedState %>;
+</script>
+<% } %>
 <% if(typeof error === 'undefined') { %>
   <% if(env === 'PROD') { %>
   <script src="/assets/js/bundle.js"></script>

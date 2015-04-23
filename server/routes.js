@@ -10,6 +10,10 @@ var clientSideRoutes = require('../src/routes.jsx');
 
 var github = require('../src/services/github');
 
+/**
+ * If any async request needs to be done, makes it and feeds the state, then calls the callback
+ * (preventing rendering before async data returns)
+ */
 var fetchDataByRoute = function(req, state, cb){
   if(req.url.indexOf('/github/user/') > -1){
     state.data = {};
@@ -21,25 +25,27 @@ var fetchDataByRoute = function(req, state, cb){
       state.data.profile.pristineLogin = state.params.username;
       state.data.repositories = results[1];
       state.data.repositories.pristineLogin = state.params.username;
-      cb();
+      cb(state);
     },() => {
       delete state.data;
-      cb();
+      cb(state);
     });
   }
   else{
-    cb();
+    cb(state);
   }
 };
 
 /* GET users listing. */
 router.get('/*', function(req, res, next) {
   Router.run(clientSideRoutes, req.url, function(Handler, state) {
-    fetchDataByRoute(req, state, function(){
-      var body = React.renderToString(<Handler {...state}/>)
+    fetchDataByRoute(req, state, function(populatedState){
+      var body = React.renderToString(<Handler {...populatedState}/>);
+      var serializedState = JSON.stringify(populatedState);
       res.render(path.resolve(__dirname, 'views/body.ejs'), {
         layout: 'layout',
         body: body,
+        serializedState: serializedState,
         env: req.app.get('env')
       });
     });

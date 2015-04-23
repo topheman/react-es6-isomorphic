@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import Router from 'react-router';
 import routes from './routes.jsx';
@@ -10,6 +12,9 @@ httpService.getInstance(httpServiceConfiguration);//will keep config in singleto
 //I use dependency injection, in the one place that won't be executed in node : the client side bootstrap
 
 Router.run(routes, Router.HistoryLocation, function(Handler, state){
-  var params = state.params;//pass params to handler (this way we will pass data on the express router) https://github.com/rackt/react-router/blob/master/docs/guides/overview.md#dynamic-segments
-  React.render(<Handler params={params}/>, document.body);
+  if(window.__DATA__){
+    state = window.__DATA__;
+    window.__DATA__ = null;//only use at first render to sync up
+  }
+  React.render(<Handler {...state}/>, document.body);
 });
