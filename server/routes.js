@@ -19,12 +19,15 @@ var fetchDataByRoute = function(req, state, cb){
     state.data = {};
     Promise.all([
       github.getUser(state.params.username),
-      github.getUserRepos(state.params.username)
+      github.getUserRepos(state.params.username,{
+        page: 1,
+        sort: "updated",
+        per_page: 15
+      })
     ]).then(results => {
+      state.username = state.params.username;
       state.data.profile = results[0];
-      state.data.profile.pristineLogin = state.params.username;
       state.data.repositories = results[1];
-      state.data.repositories.pristineLogin = state.params.username;
       cb(state);
     },() => {
       delete state.data;
