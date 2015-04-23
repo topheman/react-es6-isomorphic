@@ -43,11 +43,11 @@ var fetchDataByRoute = function(req, state, cb){
 router.get('/*', function(req, res, next) {
   Router.run(clientSideRoutes, req.url, function(Handler, state) {
     fetchDataByRoute(req, state, function(populatedState){
-      var body = React.renderToString(<Handler {...populatedState}/>);
+      var markup = React.renderToString(<Handler {...populatedState}/>);
       var serializedState = JSON.stringify(populatedState);
-      res.render(path.resolve(__dirname, 'views/body.ejs'), {
+      res.render(path.resolve(__dirname, 'views/markup.ejs'), {
         layout: 'layout',
-        body: body,
+        markup: markup,
         serializedState: serializedState,
         env: req.app.get('env')
       });
