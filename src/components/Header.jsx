@@ -61,7 +61,7 @@ export default class Header extends React.Component {
             </a>
           </li>
           <li className="github">
-            <a href="https://github.com/topheman/react-es6" title="Fork on github">
+            <a href="https://github.com/topheman/react-es6-isomorphic" title="Fork on github">
               <span className="icon"></span>
               <span className="desc">Github</span>
             </a>
