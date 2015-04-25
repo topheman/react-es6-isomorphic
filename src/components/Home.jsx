@@ -22,7 +22,7 @@ export default class Home extends React.Component {
             <a href="http://dev.topheman.com/playing-with-es6-and-react/" title="topheman/react-es6 blog post - client-side part">topheman/react-es6</a> : front-end part of the app, previously developed only using es6 and isomorphic libraries such as superagent, to be reused "as is" for the version you're seeing
           </li>
         </ul>
-        <p><strong>TLDR;</strong> : click on the button to try it !</p>
+        <p><strong>TL;DR</strong> : click on the button to try it !</p>
         <p className="text-center"><Link className="btn btn-default btn-primary btn-lg" to="github">TRY the DAMN thing !</Link></p>
         <p><strong>Isomorphic</strong>, you say ? Take a quick look a the <strong><Link to="about">about page</Link></strong> if you don't see the difference with the previous version.</p>
         <p>You can also checkout the source code on github at : <a href="https://github.com/topheman/react-es6-isomorphic" title="topheman/react-es6-isomorphic on Github">topheman/react-es6-isomorphic</a></p>

@@ -49,6 +49,7 @@ export default class Header extends React.Component {
               <ul className="nav navbar-nav">
                 <li><Link to="github">Search Github Users</Link></li>
                 <li><Link to="about">About</Link></li>
+                <li><a href="http://dev.topheman.com/react-es6-isomorphic/" title="Makin a React ES6 Isomorphic app">Blog post</a></li>
               </ul>
             </div>
           </div>
