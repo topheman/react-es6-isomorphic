@@ -16,7 +16,7 @@ This project endgoal is to make an **isomorphic app** (same code for both client
 1. Backend : [topheman/topheman-apis-proxy](https://github.com/topheman/topheman-apis-proxy) : An ExpressJS based server that manages public APIs (and more)
 2. Frontend : [topheman/react-es6](https://github.com/topheman/react-es6) : All the frontend part of the app (UI in React ...) was first coded on that repo (and any modifications on the UI part will still be made there - see [contributing section](#contributing))
 
-This previous work will allow me to achieve my end goal : **create an isomorphic app**. This is what [topheman/react-es6-isomorphic](https://github.com/topheman/react-es6-isomorphic) is about :
+This previous work has allowed me to achieve my end goal : **create an isomorphic app**. This is what [topheman/react-es6-isomorphic](https://github.com/topheman/react-es6-isomorphic) is about :
 
 * Do an isomorphic app
 * Same router on frontend and backend with multiple routes
