@@ -1,6 +1,6 @@
 {
   "name": "react-es6-isomorphic",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A simple app to try React and ES6, using topheman-apis-proxy as data api backend NOW with isomorphism",
   "main": "index.js",
   "scripts": {
@@ -19,17 +19,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/topheman/react-es6.git"
+    "url": "https://github.com/topheman/react-es6-isomorphic.git"
   },
   "keywords": [
-    "react"
+    "react",
+    "ES6",
+    "isomorphism",
+    "server-side rendering",
+    "express"
   ],
   "author": "Christophe Rosset",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/topheman/react-es6/issues"
+    "url": "https://github.com/topheman/react-es6-isomorphic/issues"
   },
-  "homepage": "https://github.com/topheman/react-es6",
+  "homepage": "https://github.com/topheman/react-es6-isomorphic",
   "engines": {
     "node": "0.12.0"
   },

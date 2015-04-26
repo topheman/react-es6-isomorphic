@@ -1,5 +1,10 @@
 react-es6-isomorphic
 ====================
+
+![image](http://dev.topheman.com/wp-content/uploads/2015/04/logo-reactjs.png)
+
+*UPDATE :* I made a [blog post](http://dev.topheman.com/react-es6-isomorphic/) if you want to have my feedbacks (this readme is still relevant for the evolution of the project and all the specifics about setup, deployment ...).
+
 This project endgoal is to make an **isomorphic app** (same code for both client and server side). It was built using the following :
 
 * React (client and server side rendering)
@@ -41,8 +46,11 @@ Here are the following steps I intend to follow (may change) - should be tagged 
 - [x] Sync React nodes (not to have re-render) [v1.2.0](https://github.com/topheman/react-es6-isomorphic/tree/v1.2.0)
 	- [x] Passing serialized state to the front router
 	- [x] Fixed `Warning: render(): Target node has markup rendered by React, but there are unrelated nodes as well. This is most commonly caused by white-space inserted around server-rendered markup.` [by wrapping markup with divs](https://github.com/cvan/taro/issues/28#issuecomment-95694552).
-- [ ] Update frontend pages (home, twitter button, analytics, explain project ...)
-- [ ] Find more elegant way to inject data (maybe use flux ?)
+- [x] Update frontend pages [v1.3.0](https://github.com/topheman/react-es6-isomorphic/tree/v1.3.0)
+	- [x] correct google analytics
+	- [x] changed twitter button message
+	- [x] changed some content on frontend component (added about page)
+- [ ] Find more elegant way to inject data (maybe [use flux](https://github.com/topheman/react-es6-isomorphic/issues/1) ?)
 - [ ] ...
 
 ###Setup
@@ -140,3 +148,22 @@ For specific customization of client-side code (`/src` folder) or `webbpack.conf
 ###FAQ
 
 This project is still a work in progress, I'm documenting as I'm moving forward.
+
+###License
+
+This software is distributed under an MIT licence.
+
+Copyright 2015 © Christophe Rosset
+
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+> and associated documentation files (the "Software"), to deal in the Software without
+> restriction, including without limitation the rights to use, copy, modify, merge, publish,
+> distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the
+> Software is furnished to do so, subject to the following conditions:
+> The above copyright notice and this permission notice shall be included in all copies or
+> substantial portions of the Software.
+> The Software is provided "as is", without warranty of any kind, express or implied, including
+> but not limited to the warranties of merchantability, fitness for a particular purpose and
+> noninfringement. In no event shall the authors or copyright holders be liable for any claim,
+> damages or other liability, whether in an action of contract, tort or otherwise, arising from,
+> out of or in connection with the software or the use or other dealings in the Software.
