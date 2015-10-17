@@ -12,7 +12,9 @@
 </head>
 <body>
 <% include ./partials/analytics %>
-<div><%- markup %></div>
+<% if(typeof markup !== 'undefined') { %>
+<div id="app-container"><%- markup %></div>
+<% } %>
 <% if(typeof serializedState !== 'undefined') { %>
 <script type="text/javascript">
 var __DATA__ = <%- serializedState %>;
@@ -25,16 +27,6 @@ var __DATA__ = <%- serializedState %>;
   <script src="http://localhost:8080/webpack-dev-server.js"></script>
   <script src="http://localhost:8080/assets/js/bundle.js"></script>
   <% } %>
-  <!-- twitter button -->
-  <script>!function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-      if (!d.getElementById(id)) {
-        js = d.createElement(s);
-        js.id = id;
-        js.src = p + '://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }
-    }(document, 'script', 'twitter-wjs');</script>
 <% } %>
 </body>
 </html>

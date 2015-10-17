@@ -24,17 +24,30 @@ export default class GithubUser extends React.Component {
     //init state
     this.state = this._getInitialState();
 
-    //server-side rendering based on passing data retrieved previously from the server
-    if(props.data){
-      this.state.profile = props.data.profile;
-      this.state.profile.pristineLogin = props.username;
-      this.state.repositories = props.data.repositories;
-      this.state.repositories.pristineLogin = props.username;
+    //init state client-side - when the page was already rendered server-side, to share the state (passed serialized)
+    if(typeof __DATA__ !== 'undefined' && __DATA__ !== null){
+      this.state = __DATA__.data;
+      __DATA__ = null;
+    }
+
+    //init state server-side - to render based on data previously retrieved and passed through the router params
+    if(props.params.data){
+      this.state.profile = props.params.data.profile;
+      this.state.profile.pristineLogin = props.params.username;
+      this.state.repositories = props.params.data.repositories;
+      this.state.repositories.pristineLogin = props.params.username;
     }
 
   }
+
+  /**
+   * If the component's state not yet initialized with data (from server-side rendering),
+   * will trigger an xhr, a state change and a re-render
+   *
+   * Should never be triggered on server-side rendering (even if componentDidMount only fires on client,
+   * this one fires before the first render - see http://facebook.github.io/react/docs/component-specs.html#lifecycle-methods )
+   */
   componentWillMount(){
-    //only launch xhr if there isn't any data in state (could have been server-side pre-loaded)
     if(!this.state.profile.data) {
       this.init(this.state.profile.pristineLogin);
     }
