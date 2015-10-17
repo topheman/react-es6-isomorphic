@@ -1,9 +1,7 @@
 'use strict';
 
 import React from 'react';
-import Router from 'react-router';
-
-var Link = Router.Link;
+import { Router, Link } from 'react-router';
 
 export default class Home extends React.Component {
   render() {
@@ -23,8 +21,8 @@ export default class Home extends React.Component {
           </li>
         </ul>
         <p><strong>TL;DR</strong> : click on the button to try it !</p>
-        <p className="text-center"><Link className="btn btn-default btn-primary btn-lg" to="github">TRY the DAMN thing !</Link></p>
-        <p><strong>Isomorphic</strong>, you say ? Take a quick look a the <strong><Link to="about">about page</Link></strong> if you don't see the difference with the previous version.</p>
+        <p className="text-center"><Link className="btn btn-default btn-primary btn-lg" to="/github">TRY the DAMN thing !</Link></p>
+        <p><strong>Isomorphic</strong>, you say ? Take a quick look a the <strong><Link to="/about">about page</Link></strong> if you don't see the difference with the previous version.</p>
         <p>You can also checkout the source code on github at : <a href="https://github.com/topheman/react-es6-isomorphic" title="topheman/react-es6-isomorphic on Github">topheman/react-es6-isomorphic</a></p>
       </div>
     );

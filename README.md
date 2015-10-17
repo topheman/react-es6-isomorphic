@@ -57,7 +57,7 @@ Here are the following steps I intend to follow (may change) - should be tagged 
 
 ####Install
 
-`npm install grunt-cli -g` (if you don't have it)
+`npm install gulp-cli -g` (if you don't have it)
 
 ```shell
 git clone https://github.com/topheman/react-es6-isomorphic.git
