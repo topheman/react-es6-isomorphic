@@ -1,9 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Router from 'react-router';
-
-var Link = Router.Link;
 
 export default class About extends React.Component {
   render() {
