@@ -29,10 +29,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// available vars in all templates
+app.locals.hash = '';
+app.locals.bannerHtml = require('../common').getBannerHtml();
+
 //@note don't really need to serve /public since every assets are bundle with webpack
 //app.use(express.static(path.join(__dirname, 'public'))); //keeping it if any assets come out
 if (app.get('env') === 'PROD') {
   app.use(express.static(path.join(__dirname, '../build')));
+  try{
+    app.locals.hash = '-' + require('../build/stats.json').hash;
+    console.log('Using hash:', app.locals.hash);
+  }
+  catch(e){
+    throw new Error("Couldn't retrieve hash from /build/stats.json, please rebuild", e);
+  }
 }
 
 // catch 404 and forward to error handler (must be before routes declaration which catches all)

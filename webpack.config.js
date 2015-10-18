@@ -29,7 +29,7 @@ else{
 
 /** before build */
 
-var hash = process.env.PROD ? '-[hash]' : '';
+var hash = env === 'prod' ? '-[hash]' : '';
 
 //in build mode, cleanup build folder before
 if(MODE_DEV_SERVER === false){
