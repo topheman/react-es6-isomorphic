@@ -8,6 +8,20 @@ var app = require('../app');
 var debug = require('debug')('http');
 var http = require('http');
 
+var env = process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'dev';
+if(env === 'prod'){
+  console.log('PRODUCTION mode');
+}
+else if(env === 'test'){
+  console.log('TEST mode');
+}
+else if(env === 'mock'){
+  console.log('MOCK mode');
+}
+else{
+  console.log('DEVELOPMENT mode');
+}
+
 /**
  * Get port from environment and store in Express.
  */

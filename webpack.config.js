@@ -11,14 +11,15 @@ console.log('Launched in ' + (MODE_DEV_SERVER ? 'dev-server' : 'build') + ' mode
 
 /** environment setup */
 
-if(process.env.PROD){
+var env = process.env.NODE_ENV ? process.env.NODE_ENV.toLowerCase() : 'dev';
+if(env === 'prod'){
   console.log('PRODUCTION mode');
 }
-else if(process.env.TEST){
+else if(env === 'test'){
   console.log('TEST mode');
   mockObjects = true;
 }
-else if(process.env.MOCK){
+else if(env === 'mock'){
   console.log('MOCK mode');
   mockObjects = true;
 }
@@ -49,7 +50,7 @@ plugins.push(new ExtractTextPlugin('css/main' + hash + '.css',{
 }));
 plugins.push(new webpack.BannerPlugin(common.getBanner()));
 
-if(process.env.PROD){
+if(env === 'prod'){
   plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: true
@@ -74,12 +75,11 @@ var resolve = {
   alias : {}
 };
 //only used browser side
-resolve.alias['httpServiceConfiguration'] = path.resolve(__dirname, './src/services/httpService/config/environment/config' + (process.env.PROD ? '.build' : (process.env.MOCK ? '.mock' : '.dev' ) ) + '.js');
+resolve.alias['httpServiceConfiguration'] = path.resolve(__dirname, './src/services/httpService/config/environment/config' + (env === 'prod' ? '.build' : (env === 'mock' ? '.mock' : '.dev' ) ) + '.js');
 
 var config = {
   entry: {
     "js/bundle": [
-      'webpack/hot/only-dev-server',//removed on build mode
       "./src/bootstrap.jsx"
     ],
     "css/main": "./src/style/main.scss"
@@ -90,8 +90,8 @@ var config = {
     path: "./build/assets"
   },
   cache: true,
-  debug: process.env.PROD ? false : true,
-  devtool: process.env.PROD ? false : "sourcemap",
+  debug: env === 'prod' ? false : true,
+  devtool: env === 'prod' ? false : "sourcemap",
   devServer: {
     contentBase: './public',
     inline: true
@@ -125,10 +125,5 @@ var config = {
   resolve: resolve,
   plugins: plugins
 };
-
-if(MODE_DEV_SERVER === false){
-  //remove 'webpack/hot/only-dev-server' on build
-  config.entry["js/bundle"].shift();
-}
 
 module.exports = config;

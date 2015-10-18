@@ -5,17 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/bin/www",
-    "nodemon": "node_modules/nodemon/bin/nodemon.js ./server/bin/www",
+    "nodemon": "node_modules/.bin/nodemon -e js,jsx,json,ejs ./server/bin/www",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server-dev": "NODE_ENV=DEV DEBUG=http,errors npm run nodemon",
-    "server-mock": "NODE_ENV=MOCK DEBUG=http,errors npm run nodemon",
-    "server-prod": "NODE_ENV=PROD DEBUG=http,errors npm run nodemon",
-    "webpack-dev": "./node_modules/.bin/webpack-dev-server --progress --colors --hot",
-    "webpack-mock": "MOCK=true ./node_modules/.bin/webpack-dev-server --progress --colors --hot",
+    "server-dev": "DEBUG=http,errors npm run nodemon",
+    "server-mock": "NODE_ENV=MOCK npm run server-dev",
+    "server-prod": "echo 'Building assets before launching server' && NODE_ENV=PROD npm run webpack-build && NODE_ENV=PROD DEBUG=http,errors npm start",
+    "webpack-dev": "./node_modules/.bin/webpack-dev-server --progress --colors",
+    "webpack-mock": "NODE_ENV=MOCK npm run webpack-dev",
     "webpack-build": "./node_modules/.bin/webpack --progress",
-    "webpack-build-prod": "PROD=true ./node_modules/.bin/webpack --progress",
-    "webpack-build-heroku": "npm run webpack-build-prod",
-    "postinstall": "npm run webpack-build-heroku"
+    "postinstall": "npm run webpack-build"
   },
   "repository": {
     "type": "git",

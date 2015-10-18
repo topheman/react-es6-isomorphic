@@ -57,8 +57,6 @@ Here are the following steps I intend to follow (may change) - should be tagged 
 
 ####Install
 
-`npm install gulp-cli -g` (if you don't have it)
-
 ```shell
 git clone https://github.com/topheman/react-es6-isomorphic.git
 cd react-es6-isomorphic
@@ -71,30 +69,30 @@ You'll have to install the [topheman-apis-proxy](https://github.com/topheman/top
 
 A set of npm tasks are configured in the package.json to help you.
 
-I'll try to automate even more, but with that, you'll be able to have your API server (topheman-apis-proxy), your expressJS server AND the webpack hot reload of the client side assets (js, css) with sourceMaps.
+I'll try to automate even more, but with that, you'll be able to have your API server (topheman-apis-proxy), your expressJS server AND the webpack dev server managing client side assets (js, css) with sourceMaps.
+
+Those npm task are based on the env var `NODE_ENV` which accepts `PROD`/`MOCK`/`DEV`, but this var is abstracted by the tasks.
 
 #####Dev mode
 
 Open three terminal tabs : two in the react-es6-isomorphic project folder, one in the topheman-apis-proxy project folder.
 
-* Tab 1 react-es6-isomorphic : `npm run webpack-dev` (will launch webpack in hot reload)
-* Tab 2 react-es6-isomorphic : `npm run server-dev` (will launch the express server on port 9000)
+* Tab 1 react-es6-isomorphic : `npm run webpack-dev` (will launch the webpack dev server, serving the front assets in live reloading)
+* Tab 2 react-es6-isomorphic : `npm run server-dev` (will launch the express server on port 9000, monitored by nodemon which will restart the server on pretty much any file changes - since there is server side rendering)
 * Tab 3 topheman-apis-proxy : `grunt serve` (see more in the [run in local](https://github.com/topheman/topheman-apis-proxy#run-in-local) README section)
 
 #####Mock mode
 
 You can run the project offline (without topheman-apis-proxy), a set of requests are mocked (not all of them, still wip), it will also be usefull for unit tests in continuous integration :
 
-* Tab 1 react-es6-isomorphic : `npm run webpack-mock` (will launch webpack in hot reload)
-* Tab 2 react-es6-isomorphic : `npm run server-mock` (will launch the express server on port 9000)
+* Tab 1 react-es6-isomorphic : `npm run webpack-mock` (will launch webpack dev server, serving the front assets in live reloading)
+* Tab 2 react-es6-isomorphic : `npm run server-mock` (will launch the express server on port 9000, monitored by nodemon)
 
 #####Prod mode
 
-To check the behavior in prod mode, you'll have to make the build (more in build section), since it won't be relying on webpack hotreload but on static built assets in the `/build` folder.
+`npm run server-prod` will build the assets via webpack in production mode and then launch the express server in production mode.
 
-1. Tab 1 react-es6-isomorphic : `npm run webpack-build` (will contains sourceMaps, etc ...)
-2. Tab 1 react-es6-isomorphic : `npm run server-prod` (will launch the express server on port 9000)
-3. Tab 2 `grunt serve` (see more in the [run in local](https://github.com/topheman/topheman-apis-proxy#run-in-local) README section
+Use it to check if the project behaves OK in production mode before delivering (note that my production server of topheman-apis-proxy won't accept xhr because of cors constraints in this case).
 
 #####Finally
 
@@ -105,14 +103,14 @@ Open [http://localhost:9000](http://localhost:9000/)
 
 The client-side code is written in ES6 with modules that work as well on the client as on the server (like React, superagent ...).
 
-* client-side : a bundle is made with webpack and accessible either via its hot-reload dev server, or written inside `/build` folder
+* client-side : a bundle is made with webpack and accessible either via the webpack dev server, or written inside `/build` folder
 * server-side : `require('babel/register')` lets me use those es6 modules without any transpiling step (babel does it itself on the fly, I don't have to worry about it)
 
 I also made a set of npm tasks for the build step, that creates a bundle inside the `/build` folder (including js, sass to css, images ...)
 
-* `npm run webpack-build` : build for dev with sourceMaps
-* `npm run webpack-build-prod` : build for the prod (minified, optimized and also, the url of the topheman-apis-proxy instance server is changed, injected directly into the build - [todo write a section here or on the other repo])
-* `npm run webpack-build-heroku` : same as above, though, it's using the local grunt-cli (because it's this task which is used on `postinstall` when delivering on heroku, so that the client-side bundle is built when pushing on heroku)
+`npm run webpack-build` will build the assets to `/build` (with sourcemaps and all), you can `npm start` after if you want, to check the project without webpack involved.
+
+This task is triggered at post-install, since it's based on the `NODE_ENV` variable, it will create the bundle in the correct mode.
 
 ###Deploy
 
