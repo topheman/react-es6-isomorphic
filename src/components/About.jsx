@@ -6,8 +6,9 @@ export default class About extends React.Component {
   render() {
     return (
       <div>
+        <p><i>Update:</i> You may now use <i>"universal"</i> instead of isomorphic (see this <a href="https://medium.com/@mjackson/universal-javascript-4761051b7ae9" title="Universal JavaScript by Michael Jackson">post</a>).</p>
         <p>
-          The difference is that any page you access <strong>directly</strong> will be <strong>server-side rendered</strong>.
+          The difference with regular SPA is that any page you access <strong>directly</strong> will be initially <strong>server-side rendered</strong>.
           You can check that by accessing directly a page and displaying its source.<br/>
           Even if server-side rendered, the SPA keeps working as usual (front-end router, template rendering ...).
         </p>

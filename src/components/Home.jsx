@@ -7,23 +7,12 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <p>
-          This POC is the result of a <strong>three steps project</strong> I set in motion a few weeks earlier.
-          The endgoal was to <strong>make an isomorphic app</strong>, using <strong>React</strong> and <strong>ES6</strong>, displaying some dynamic data from a backend.
-          Here are the previous steps :
-        </p>
-        <ul>
-          <li>
-            <a href="https://github.com/topheman/topheman-apis-proxy" title="topheman-apis-proxy on Github">topheman-apis-proxy</a> : the backend that proxies public APIs
-          </li>
-          <li>
-            <a href="http://dev.topheman.com/playing-with-es6-and-react/" title="topheman/react-es6 blog post - client-side part">topheman/react-es6</a> : front-end part of the app, previously developed only using es6 and isomorphic libraries such as superagent, to be reused "as is" for the version you're seeing
-          </li>
-        </ul>
+        <p>This project is the <strong>isomorphic</strong> version of <a href="https://github.com/topheman/react-es6" title="react-es6 on github">topheman/react-es6</a>. It's based on <strong>React</strong> and <strong>Express</strong> and relies on <a href="https://github.com/topheman/topheman-apis-proxy" title="topheman-apis-proxy on Github">topheman-apis-proxy</a> for the backend (providing the github API).</p>
+        <p>It's running on <strong>react v0.14.0</strong></p>
+        <p>Please check out the <a href="https://github.com/topheman/react-es6-isomorphic" title="topheman/react-es6-isomorphic on Github">github repo</a> or read <a href="http://dev.topheman.com/react-es6-isomorphic/" title="Isomorphic app using React and ES6">the blog post</a> for further informations.</p>
         <p><strong>TL;DR</strong> : click on the button to try it !</p>
         <p className="text-center"><Link className="btn btn-default btn-primary btn-lg" to="/github">TRY the DAMN thing !</Link></p>
-        <p><strong>Isomorphic</strong>, you say ? Take a quick look a the <strong><Link to="/about">about page</Link></strong> if you don't see the difference with the previous version.</p>
-        <p>You can also checkout the source code on github at : <a href="https://github.com/topheman/react-es6-isomorphic" title="topheman/react-es6-isomorphic on Github">topheman/react-es6-isomorphic</a></p>
+        <p><strong>Isomorphic</strong>, you say ? You may now use the term <i>"universal"</i> ... Take a quick look at the <strong><Link to="/about">about page</Link></strong> if you don't see the difference with the front-only version.</p>
       </div>
     );
   }
