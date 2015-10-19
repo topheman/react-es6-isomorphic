@@ -62,9 +62,19 @@ if(MODE_DEV_SERVER === false){
   //write infos about the build (to retrieve the hash) https://webpack.github.io/docs/long-term-caching.html#get-filenames-from-stats
   plugins.push(function() {
     this.plugin("done", function(stats) {
+      console.log('');//break line
+
       require("fs").writeFileSync(
         path.join(__dirname, "build", "stats.json"),
         JSON.stringify(stats.toJson()));
+      console.log('Created /build/stats.json file');
+
+      //save the git revision hash (on heroku, it can only be retrieved at compile time), that way, it will be available to express after
+      var bannerInfos = require('./common').getInfos();
+      require("fs").writeFileSync(
+        path.join(__dirname, "build", "bannerInfos.json"),
+        JSON.stringify(bannerInfos));
+      console.log('Created /build/bannerInfos.json file');
     });
   });
 }

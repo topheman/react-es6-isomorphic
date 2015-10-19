@@ -31,7 +31,7 @@ app.use(cookieParser());
 
 // available vars in all templates
 app.locals.hash = '';
-app.locals.bannerHtml = require('../common').getBannerHtml();
+app.locals.bannerHtml = require('../common').getBannerHtml( app.get('env') === 'PROD' ? require('../build/bannerInfos.json') : {});
 
 //@note don't really need to serve /public since every assets are bundle with webpack
 //app.use(express.static(path.join(__dirname, 'public'))); //keeping it if any assets come out
