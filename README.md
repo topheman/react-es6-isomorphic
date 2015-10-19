@@ -3,7 +3,7 @@ react-es6-isomorphic
 
 ![image](http://dev.topheman.com/wp-content/uploads/2015/04/logo-reactjs.png)
 
-*UPDATE :* Facebook released [react@0.14.0](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html), so I upgraded [topheman/react-es6](https://github.com/topheman/react-es6) and this project with the latest version (also upgraded react-router).
+*UPDATE :* Facebook released [react@0.14.0](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html), so I upgraded [topheman/react-es6](https://github.com/topheman/react-es6) and this project with the latest version (also upgraded react-router - which was the most of the work).
 
 This project is the isomorphic version of [topheman/react-es6](https://github.com/topheman/react-es6), which contains all the front-end part (UI in React ...) and was coded so that it could be executed in both client and server side (shared components, routes, services ...)
 
@@ -74,7 +74,7 @@ I also made a set of npm tasks for the build step, that creates a bundle inside 
 
 `npm run webpack-build` will build the assets to `/build` (with sourcemaps and all), you can `npm start` after if you want, to check the project without webpack involved.
 
-This task is triggered at post-install, since it's based on the `NODE_ENV` variable, it will create the bundle in the correct mode.
+This task is triggered at `npm postinstall`, since it's based on the `NODE_ENV` variable, it will create the bundle in the correct mode.
 
 ###Deploy
 
@@ -94,7 +94,7 @@ As I stated before, [topheman/react-es6](https://github.com/topheman/react-es6),
 
 So, any **client-side related pull-requests** should be done against [topheman/react-es6](https://github.com/topheman/react-es6).
 
-**This repo is only about server-side rendering.** I won't accept pull-request about client-side features.
+**This repo is only about server-side rendering.** I won't accept pull-requests about client-side features.
 
 ###FAQ
 
