@@ -17,7 +17,8 @@ export default class TwitterButton extends React.Component {
         height="28px"
         title="Twitter Tweet Button"
         style={{border: 0, overflow: "hidden"}}
-        ref="iframe" src="https://platform.twitter.com/widgets/tweet_button.html?count=none&dnt=false&lang=en&original_referer=http%3A%2F%2Ftopheman.github.io%2Freact-es6%2F%23%2F&size=l&text=Isomorphic%20%23reactjs%20app%20in%20%23es6%20using%20Github%20API&tw_p=tweetbutton&url=https%3A%2F%2Ftopheman-react-es6-isomorphic.herokuapp.com%2F&via=topheman" />
+        scrolling="no"
+        ref="iframe" src="https://platform.twitter.com/widgets/tweet_button.html?count=none&dnt=false&lang=en&original_referer=https%3A%2F%2Ftopheman-react-es6-isomorphic.herokuapp.com%2Freact-es6%2F%23%2F&size=l&text=Isomorphic%20%23reactjs%20app%20in%20%23es6%20using%20Github%20API&tw_p=tweetbutton&url=https%3A%2F%2Ftopheman-react-es6-isomorphic.herokuapp.com%2F&via=topheman" />
     );
   }
 }
