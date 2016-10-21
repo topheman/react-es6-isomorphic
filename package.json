@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/topheman/react-es6-isomorphic",
   "engines": {
-    "node": "5"
+    "node": "6"
   },
   "devDependencies": {
     "babel-core": "^5.8.25",
