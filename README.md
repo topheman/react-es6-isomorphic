@@ -45,7 +45,7 @@ Open three terminal tabs : two in the react-es6-isomorphic project folder, one i
 * Tab 2 react-es6-isomorphic : `npm run server-dev` (will launch the express server on port 9000, monitored by nodemon which will restart the server on pretty much any file changes - since there is server side rendering)
 * Tab 3 topheman-apis-proxy : `grunt serve` (see more in the [run in local](https://github.com/topheman/topheman-apis-proxy#run-in-local) README section)
 
-#####Mock mode
+##### Mock mode
 
 You can run the project offline (without topheman-apis-proxy), a set of requests are mocked (not all of them, still wip), it will also be usefull for unit tests in continuous integration :
 
