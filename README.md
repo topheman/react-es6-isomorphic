@@ -17,9 +17,9 @@ Techs involved :
 
 If you want to go further, read the [blog post](http://dev.topheman.com/react-es6-isomorphic/) about this project.
 
-###Setup
+### Setup
 
-####Install
+#### Install
 
 ```shell
 git clone https://github.com/topheman/react-es6-isomorphic.git
@@ -29,7 +29,7 @@ npm install
 
 You'll have to install the [topheman-apis-proxy](https://github.com/topheman/topheman-apis-proxy) backend, follow the [installation steps](https://github.com/topheman/topheman-apis-proxy#installation) README section.
 
-####Run
+#### Run
 
 A set of npm tasks are configured in the package.json to help you.
 
@@ -37,7 +37,7 @@ I'll try to automate even more, but with that, you'll be able to have your API s
 
 Those npm task are based on the env var `NODE_ENV` which accepts `PROD`/`MOCK`/`DEV`, but this var is abstracted by the tasks.
 
-#####Dev mode
+##### Dev mode
 
 Open three terminal tabs : two in the react-es6-isomorphic project folder, one in the topheman-apis-proxy project folder.
 
@@ -52,18 +52,18 @@ You can run the project offline (without topheman-apis-proxy), a set of requests
 * Tab 1 react-es6-isomorphic : `npm run webpack-mock` (will launch webpack dev server, serving the front assets in live reloading)
 * Tab 2 react-es6-isomorphic : `npm run server-mock` (will launch the express server on port 9000, monitored by nodemon)
 
-#####Prod mode
+##### Prod mode
 
 `npm run server-prod` will build the assets via webpack in production mode and then launch the express server in production mode.
 
 Use it to check if the project behaves OK in production mode before delivering (note that my production server of topheman-apis-proxy won't accept xhr because of cors constraints in this case).
 
-#####Finally
+##### Finally
 
 Open [http://localhost:9000](http://localhost:9000/)
 
 
-####Build
+#### Build
 
 The client-side code is written in ES6 with modules that work as well on the client as on the server (like React, superagent ...).
 
@@ -76,7 +76,7 @@ I also made a set of npm tasks for the build step, that creates a bundle inside 
 
 This task is triggered at `npm postinstall`, since it's based on the `NODE_ENV` variable, it will create the bundle in the correct mode.
 
-###Deploy
+### Deploy
 
 I deploy on heroku, if you don't, you shouldn't have to tweak a lot my routine.
 
@@ -88,7 +88,7 @@ Assuming you've logged in to heroku on the command line and have setup your hero
 
 A tricks I discovered : if you're on a branch and want to deploy to heroku (which ignores anything which is not the master branch) : `git push -f heroku name-of-your-branch:master`
 
-###Contributing
+### Contributing
 
 As I stated before, [topheman/react-es6](https://github.com/topheman/react-es6), is the original project, where I'll continue to implement the client-side features - which I will merge into [topheman/react-es6-isomorphic](https://github.com/topheman/react-es6-isomorphic), which is [only about server-side rendering](#contributing).
 
@@ -96,11 +96,11 @@ So, any **client-side related pull-requests** should be done against [topheman/r
 
 **This repo is only about server-side rendering.** I won't accept pull-requests about client-side features.
 
-###FAQ
+### FAQ
 
 This project is still a work in progress, I'm documenting as I'm moving forward.
 
-###License
+### License
 
 This software is distributed under an MIT licence.
 
